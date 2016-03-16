@@ -1,0 +1,12 @@
+main: com.therealspoljo.antiautosoup.Main
+name: AntiAutoSoup
+version: 1.4
+author: therealspoljo
+
+permissions:
+  aas.notifications:
+    description: notifies you when an auto souper is found
+    default: op
+  aas.bypass:
+    description: bypasses the check
+    default: op

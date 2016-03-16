@@ -12,8 +12,13 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import com.therealspoljo.antiautosoup.Main;
+import com.therealspoljo.antiautosoup.enums.Lang;
 
 public class Utils {
+
+    public static String colorize(String string) {
+	return ChatColor.translateAlternateColorCodes('&', string);
+    }
 
     public static void notifyStaff(Player player, int violationLevel, long time) {
 	Violation violation = TempStorage.getViolation(player.getUniqueId());
@@ -21,15 +26,19 @@ public class Utils {
 	violation.updateNotify();
 	TempStorage.violations.put(player.getUniqueId(), violation);
 
+	String message = Lang.NOTIFICATION.toString();
+
+	message = message.replaceAll("%name", player.getName());
+	message = message.replaceAll("%diff", String.valueOf(time));
+	message = message.replaceAll("%vLevel", String.valueOf(violationLevel));
+
 	for (Player staff : Bukkit.getServer().getOnlinePlayers()) {
 	    if (staff.hasPermission("aas.notifications")) {
-		staff.sendMessage(ChatColor.DARK_AQUA + "AAS" + ChatColor.GRAY + "> " + ChatColor.RED + player.getName()
-			+ " might be using AutoSoup! (diff=" + time + ") VL: " + violationLevel);
+		staff.sendMessage(message);
 	    }
 	}
 
-	Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.DARK_AQUA + "AAS" + ChatColor.GRAY + "> " + ChatColor.RED + player.getName()
-		+ " might be using AutoSoup! (diff=" + time + ") VL: " + violationLevel);
+	Bukkit.getServer().getConsoleSender().sendMessage(message);
     }
 
     public static void performAction(Player player) {
@@ -75,7 +84,7 @@ public class Utils {
 
 		    writer.close();
 		} catch (Exception ex) {
-		    System.out.println("There was an error while logging violation levels to the file.");
+		    Main.getInstance().getLogger().warning("There was an error while logging violation levels to the file.");
 		    ex.printStackTrace();
 		}
 	    }

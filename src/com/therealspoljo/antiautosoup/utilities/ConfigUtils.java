@@ -15,11 +15,11 @@ public class ConfigUtils {
     }
 
     public static int getMaxAllowedViolationLevel() {
-	return Main.getInstance().getConfig().getInt("maximum-allowed-violation-level", 150);
+	return Main.getInstance().getConfig().getInt("maximum-allowed-violation-level", 100);
     }
 
     public static List<String> getCommandsRun() {
-	return Main.getInstance().getConfig().getStringList("commands-run");
+	return Main.getInstance().getConfig().getStringList("commands-to-run");
     }
 
     public static boolean shouldLogAlways() {

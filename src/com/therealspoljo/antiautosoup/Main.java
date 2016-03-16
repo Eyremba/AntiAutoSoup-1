@@ -12,29 +12,35 @@ import com.therealspoljo.antiautosoup.utilities.Config;
 public class Main extends JavaPlugin {
 
     private static Main instance;
-    
-    private Config config;
+
+    private Config config, langConfig;
 
     public void onEnable() {
 	instance = this;
 
 	config = Config.createConfig(this, "config");
-	
+	langConfig = Config.createConfig(this, "lang");
+
 	registerListeners();
     }
 
     public void onDisable() {
 	config = null;
-	
+	langConfig = null;
+
 	instance = null;
     }
 
     public static Main getInstance() {
 	return instance;
     }
-    
+
     public Config getConfig() {
 	return config;
+    }
+
+    public Config getLangConfig() {
+	return langConfig;
     }
 
     private void registerListeners() {

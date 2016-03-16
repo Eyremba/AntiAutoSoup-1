@@ -1,7 +1,7 @@
 check-time: 99
 message-delay: 5
-maximum-allowed-violation-level: 150
-commands-run:
+maximum-allowed-violation-level: 100
+commands-to-run:
   - 'ban %player AutoBanned by CONSOLE for using auto soup hacks!'
 logging:
   enabled: false

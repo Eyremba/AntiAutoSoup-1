@@ -36,7 +36,7 @@ public class AntiAutoSoup implements CommandExecutor {
 	    switch (args[0].toLowerCase()) {
 	    case "check":
 	    case "c": {
-		Player target = Main.getInstance().getServer().getPlayer(args[0]);
+		Player target = Main.getInstance().getServer().getPlayer(args[1]);
 
 		if (target == null) {
 		    String message = Lang.PLAYER_OFFLINE.toString();

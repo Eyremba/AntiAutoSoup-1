@@ -8,8 +8,8 @@ import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.therealspoljo.antiautosoup.Main;
 import com.therealspoljo.antiautosoup.utilities.ConfigUtils;
+import com.therealspoljo.antiautosoup.utilities.TempStorage;
 import com.therealspoljo.antiautosoup.utilities.Utils;
 
 public class InventoryClick implements Listener {
@@ -38,7 +38,7 @@ public class InventoryClick implements Listener {
 	    return;
 	}
 
-	long calculatedTime = System.currentTimeMillis() - Main.getInstance().getLastAttackTime(player.getUniqueId());
+	long calculatedTime = System.currentTimeMillis() - TempStorage.getLastAttackTime(player.getUniqueId());
 	int bowls = 0;
 
 	for (ItemStack itemStack : player.getInventory().getContents()) {
@@ -55,9 +55,9 @@ public class InventoryClick implements Listener {
 	    return;
 	}
 
-	int level = Main.getInstance().raiseViolationLevel(player.getUniqueId());
+	int level = TempStorage.raiseViolationLevel(player.getUniqueId());
 
-	if (Main.getInstance().getViolation(player.getUniqueId()).shouldNotify()) {
+	if (TempStorage.getViolation(player.getUniqueId()).shouldNotify()) {
 	    Utils.notifyStaff(player, level, calculatedTime);
 	}
 

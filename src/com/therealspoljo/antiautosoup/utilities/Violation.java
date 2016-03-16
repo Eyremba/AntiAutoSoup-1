@@ -1,7 +1,7 @@
 package com.therealspoljo.antiautosoup.utilities;
 
 public class Violation {
-    
+
     private int violationLevel = 0;
     private long lastNotified = 0L;
 
@@ -18,6 +18,6 @@ public class Violation {
     }
 
     public boolean shouldNotify() {
-	return System.currentTimeMillis() - this.lastNotified >= ConfigUtils.getMessageDelay();
+	return System.currentTimeMillis() - this.lastNotified >= (ConfigUtils.getMessageDelay() * 1000);
     }
 }

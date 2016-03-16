@@ -5,7 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 
-import com.therealspoljo.antiautosoup.Main;
+import com.therealspoljo.antiautosoup.utilities.TempStorage;
 
 public class EntityDamage implements Listener {
 
@@ -19,6 +19,6 @@ public class EntityDamage implements Listener {
 	    return;
 	}
 
-	Main.getInstance().setLastAttackTime(((Player) event.getEntity()).getUniqueId());
+	TempStorage.setLastAttackTime(((Player) event.getEntity()).getUniqueId());
     }
 }

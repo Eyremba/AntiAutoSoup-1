@@ -16,10 +16,10 @@ import com.therealspoljo.antiautosoup.Main;
 public class Utils {
 
     public static void notifyStaff(Player player, int violationLevel, long time) {
-	Violation violation = Main.getInstance().getViolation(player.getUniqueId());
+	Violation violation = TempStorage.getViolation(player.getUniqueId());
 
 	violation.updateNotify();
-	Main.getInstance().violations.put(player.getUniqueId(), violation);
+	TempStorage.violations.put(player.getUniqueId(), violation);
 
 	for (Player staff : Bukkit.getServer().getOnlinePlayers()) {
 	    if (staff.hasPermission("aas.notifications")) {
@@ -33,7 +33,7 @@ public class Utils {
     }
 
     public static void performAction(Player player) {
-	int violationLevel = Main.getInstance().getViolation(player.getUniqueId()).getViolationLevel();
+	int violationLevel = TempStorage.getViolation(player.getUniqueId()).getViolationLevel();
 	int maxAllowedViolationLevel = ConfigUtils.getMaxAllowedViolationLevel();
 
 	if (maxAllowedViolationLevel == 0) {

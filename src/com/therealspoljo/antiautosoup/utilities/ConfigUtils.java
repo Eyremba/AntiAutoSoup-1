@@ -7,11 +7,11 @@ import com.therealspoljo.antiautosoup.Main;
 public class ConfigUtils {
 
     public static long getCheckTime() {
-	return Main.getInstance().getConfig().getLong("check-time", 100L);
+	return Main.getInstance().getConfig().getLong("check-time", 100);
     }
 
     public static long getMessageDelay() {
-	return Main.getInstance().getConfig().getLong("message-delay", 5000L);
+	return Main.getInstance().getConfig().getLong("message-delay", 5);
     }
 
     public static int getMaxAllowedViolationLevel() {
@@ -35,6 +35,6 @@ public class ConfigUtils {
     }
 
     public static int getDividingNumber() {
-	return Main.getInstance().getConfig().getInt("logging.divisible", 5);
+	return Main.getInstance().getConfig().getInt("logging.if-level-divisible-by", 5);
     }
 }

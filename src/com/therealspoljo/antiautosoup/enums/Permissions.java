@@ -4,6 +4,7 @@ import org.bukkit.command.CommandSender;
 
 public enum Permissions {
 
+    ADMIN("aas.admin"),
     BYPASS("aas.bypass"),
     NOTIFICATIONS("aas.notifications");
 

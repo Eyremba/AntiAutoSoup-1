@@ -4,6 +4,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.therealspoljo.antiautosoup.commands.AntiAutoSoup;
 import com.therealspoljo.antiautosoup.listeners.EntityDamage;
 import com.therealspoljo.antiautosoup.listeners.EntityDamageByEntity;
 import com.therealspoljo.antiautosoup.listeners.InventoryClick;
@@ -21,6 +22,7 @@ public class Main extends JavaPlugin {
 	config = Config.createConfig(this, "config");
 	langConfig = Config.createConfig(this, "lang");
 
+	registerCommands();
 	registerListeners();
     }
 
@@ -41,6 +43,10 @@ public class Main extends JavaPlugin {
 
     public Config getLangConfig() {
 	return langConfig;
+    }
+
+    private void registerCommands() {
+	getCommand("antiautosoup").setExecutor(new AntiAutoSoup());
     }
 
     private void registerListeners() {

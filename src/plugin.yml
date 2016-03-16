@@ -3,10 +3,19 @@ name: AntiAutoSoup
 version: 1.4
 author: therealspoljo
 
+commands:
+  antiautosoup:
+    description: Administrative command
+    usage: /<command> <reload(rl) | check(c)> [player] 
+    aliases: [aas]
+
 permissions:
-  aas.notifications:
-    description: notifies you when an auto souper is found
+  aas.admin:
+    description: Allows you to check violation levels and reload configs
     default: op
   aas.bypass:
-    description: bypasses the check
+    description: Allows you to bypass the check
+    default: op
+  aas.notifications:
+    description: Allows you to get a notification when an auto soup hacker is found
     default: op

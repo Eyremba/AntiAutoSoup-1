@@ -8,7 +8,7 @@ public final class TempStorage {
 
     private TempStorage() {
     }
-    
+
     private static final Map<UUID, Long> lastAttacked = new HashMap<>();
     public static final Map<UUID, Violation> violations = new HashMap<>();
 

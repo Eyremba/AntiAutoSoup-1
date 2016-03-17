@@ -1,6 +1,6 @@
-title: "&4[&6AAS&4]&r "
+title: "&7[&eAAS&7]&r "
 no-permission: "&cYou don't have permission to perform this action."
 configs-reloaded: "&7Configs have been reloaded."
-level-check: "&e%name's &7violation level: &e%vLevel"
+level-check: "&e%name&7's violation level: &e%vLevel"
 player-offline: "&cPlayer &e%name &cnot found."
 notification: "&e%name &7might be using AutoSoup hack! (diff=&e%diff&7) VL: &e%vLevel"
